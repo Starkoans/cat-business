@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import {actions} from "../constants";
 
 interface DinoDialogProps {
-    setActivity: (string)=>void,
+    setActivity: (arg: string) => void,
     setTaskDone: (i: number) => void,
 }
 export const DinoDialog : React.FC<DinoDialogProps> = ({setTaskDone, setActivity})=> {

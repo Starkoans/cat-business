@@ -17,12 +17,12 @@ export const Cat: React.FC<CatProps> = ({drawContainerRef}) =>{
     const [isWalking, setIsWalking] = useState(false);
     const ref = useRef<HTMLDivElement | null>(null);
 
-    let drawContainerWidth, drawContainerHeight;
+    let drawContainerWidth: number, drawContainerHeight : number;
     useEffect(()=>{
-        if ("getBoundingClientRect" in drawContainerRef) {
+        if (drawContainerRef && "getBoundingClientRect" in drawContainerRef) {
             drawContainerWidth = drawContainerRef.getBoundingClientRect().width;
         }
-        if ("getBoundingClientRect" in drawContainerRef) {
+        if (drawContainerRef && "getBoundingClientRect" in drawContainerRef) {
             drawContainerHeight = drawContainerRef.getBoundingClientRect().height;
         }
     },[]);
