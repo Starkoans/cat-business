@@ -1,6 +1,6 @@
-import {ReactNode} from "react";
+import React from "react";
 
-export default function Modal({children}:ReactNode){
+export const Modal: React.FC =({children}:never) =>{
     return(
                 <div style={{
                     top:0,

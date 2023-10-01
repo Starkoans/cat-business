@@ -1,5 +1,5 @@
 import Dino from "../assets/lvl/dino.png";
-import Modal from "./Modal";
+import {Modal} from "./Modal";
 import React, {useState} from "react";
 import {actions} from "../constants";
 
