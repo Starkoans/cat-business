@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Room from './assets/lvl/bg.png';
 import {DinoDialog} from "./components/DinoDialog";
 import {Cat} from "./components/Cat";

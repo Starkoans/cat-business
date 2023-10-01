@@ -1,10 +1,10 @@
 import Dino from "../assets/lvl/dino.png";
 import Modal from "./Modal";
-import React, {Dispatch, SetStateAction, useState} from "react";
+import React, {useState} from "react";
 import {actions} from "../constants";
 
 interface DinoDialogProps {
-    setActivity: Dispatch<SetStateAction<string>>,
+    setActivity: (string)=>void,
     setTaskDone: (i: number) => void
 }
 export const DinoDialog : React.FC<DinoDialogProps> = ({setTaskDone, setActivity})=> {
