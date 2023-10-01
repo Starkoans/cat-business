@@ -66,13 +66,11 @@ export default function App () {
                     <DinoDialog
                         setActivity={setActivity}
                         setTaskDone={handleTaskDone}
-                        tasksState={tasks}
                     />}
                 { activity === actions[2] &&
                     <ScratchGame
                         setTaskDone={handleTaskDone}
                         setActivity={setActivity}
-                        tasksState={tasks}
                     />}
             </div>
           </div>

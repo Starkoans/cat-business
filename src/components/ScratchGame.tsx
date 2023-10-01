@@ -1,7 +1,12 @@
 import React, {useState} from "react";
 import Modal from "./Modal";
 
-export const ScratchGame: React.FC = ({setTaskDone, setActivity})=>{
+interface ScratchGameProps{
+    setActivity: (string)=>void,
+    setTaskDone: (i: number) => void,
+}
+
+export const ScratchGame: React.FC<ScratchGameProps> = ({setTaskDone, setActivity})=>{
     const [scratchProgress, setScratchProgress] = useState<number>(0);
     const handleScratch = () => {
         if (scratchProgress <100){

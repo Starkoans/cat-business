@@ -5,7 +5,7 @@ import {actions} from "../constants";
 
 interface DinoDialogProps {
     setActivity: (string)=>void,
-    setTaskDone: (i: number) => void
+    setTaskDone: (i: number) => void,
 }
 export const DinoDialog : React.FC<DinoDialogProps> = ({setTaskDone, setActivity})=> {
     const [replicasNum, setReplicasNum]=useState(0);
