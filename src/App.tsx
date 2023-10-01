@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {MutableRefObject, useEffect, useRef, useState} from "react";
 import Room from './assets/lvl/bg.png';
 import {DinoDialog} from "./components/DinoDialog";
 import Cat from "./components/Cat";
@@ -21,7 +21,7 @@ const initialTasksState :ITask[] = [
 ]
 
 export default function App () {
-  const drawContainerRef = useRef<HTMLDivElement | null>(null);
+  const drawContainerRef : MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
     const [activity, setActivity] = useState<string>(actions[0]);
     const [tasks, setTasks] = useState<ITask[]>(initialTasksState);
     const handleTaskDone = (i: number) => {
