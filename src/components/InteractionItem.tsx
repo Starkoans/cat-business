@@ -1,4 +1,4 @@
-import React, {FC, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import {ICoordinates, IItem} from "../types";
 
 interface InteractionItemProps{
@@ -6,24 +6,27 @@ interface InteractionItemProps{
     onClick?: () => void
 }
 
-export const InteractionItem :FC<InteractionItemProps> = ({item, onClick}:InteractionItemProps)=>{
+export const InteractionItem :React.FC<InteractionItemProps> = ({item, onClick}:InteractionItemProps)=>{
     const [isHovered, setIsHovered] = useState(false);
     const [tooltipPosition, setTooltipPosition]= useState<ICoordinates>({x:0,y:0})
-    const itemRef = useRef<HTMLDivElement>(null);
+    const itemRef = useRef<HTMLDivElement | null>(null);
+    const changeTooltipPosition = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = (itemRef.current?.getBoundingClientRect() as DOMRect) ||
+            { left: 0, top: 0, right: 0, bottom: 0 };
+        setTooltipPosition({
+            x: e.clientX - rect.left + 10,
+            y: e.clientY - rect.top + 10});
+    }
     return(
         <div
             onClick={onClick}
             ref={itemRef}
             onMouseEnter={(e)=> {
-                setTooltipPosition({
-                    x: e.clientX - itemRef.current?.getBoundingClientRect().left + 10,
-                    y: e.clientY - itemRef.current?.getBoundingClientRect().top + 10});
+                changeTooltipPosition(e);
                 setIsHovered(true);
             }}
             onMouseMove={(e)=> {
-                setTooltipPosition({
-                    x: e.clientX - itemRef.current?.getBoundingClientRect().left + 10,
-                    y: e.clientY - itemRef.current?.getBoundingClientRect().top + 10})
+                changeTooltipPosition(e)
             }}
             onMouseOut={()=>setIsHovered(false)}
 
