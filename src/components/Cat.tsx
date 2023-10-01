@@ -8,10 +8,10 @@ const ARROW_UP = 'KeyW';
 const ARROW_LEFT = 'KeyA';
 const ARROW_RIGHT = 'KeyD';
 
-export default function Cat({drawContainerRef}: HTMLDivElement){
+export default function Cat({drawContainerRef}: React.Ref<HTMLDivElement>){
     const [location, setLocation] = useState<ICoordinates>({x:0, y:500});
     const [isWalking, setIsWalking] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLDivElement | null>(null);
 
     let drawContainerWidth, drawContainerHeight;
     useEffect(()=>{
@@ -21,15 +21,17 @@ export default function Cat({drawContainerRef}: HTMLDivElement){
 
     const handleKeyUp = () => {
         setIsWalking(false);
-        ref.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-            inline:"center"
-        })
+        if (ref.current instanceof HTMLElement) {
+            ref.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center'
+            })
+        }
     };
 
     const handleKeyPress = (e: KeyboardEvent) => {
-        let newLocation :ICoordinates = location;
+        const newLocation :ICoordinates = location;
 
         const step = 5;
         switch (e.code) {
@@ -89,8 +91,8 @@ export default function Cat({drawContainerRef}: HTMLDivElement){
         >
             {
                 isWalking?
-                    <img src={CatWalking} style={{ width: '90px', height: '90px',}} />:
-                    <img src={CatStanding} style={{ width: '90px', height: '90px',}}/>
+                    <img alt='Cat' src={CatWalking} style={{ width: '90px', height: '90px',}} />:
+                    <img alt='Cat' src={CatStanding} style={{ width: '90px', height: '90px',}}/>
             }
         </div>
     )

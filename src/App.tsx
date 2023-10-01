@@ -21,11 +21,11 @@ const initialTasksState :ITask[] = [
 ]
 
 export default function App () {
-  const drawContainerRef = useRef<HTMLDivElement>(null);
+  const drawContainerRef = useRef<HTMLDivElement | null>(null);
     const [activity, setActivity] = useState<string>(actions[0]);
     const [tasks, setTasks] = useState<ITask[]>(initialTasksState);
-    const handleTaskDone = (i) => {
-        let nextTasks : ITask[] = tasks;
+    const handleTaskDone = (i: number) => {
+        const nextTasks : ITask[] = tasks;
         nextTasks[i].status = true;
         setTasks(nextTasks);
     };
@@ -50,7 +50,7 @@ export default function App () {
                     backgroundSize: 'cover',
                   }}
             >
-                {items.map((item, index)=>{
+                {items.map((item)=>{
                     return(
                         <InteractionItem
                             key={item.name}
