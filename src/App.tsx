@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import Room from './assets/lvl/bg.png';
-import DinoDialog from "./components/DinoDialog";
+import {DinoDialog} from "./components/DinoDialog";
 import Cat from "./components/Cat";
 import {InteractionItem} from "./components/InteractionItem";
 import {actions, items} from "./constants";

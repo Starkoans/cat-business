@@ -1,7 +1,7 @@
 import React from "react";
 import {ITask} from "../types";
 
-export const Tasks: React.FC<ITask[]> = ({tasks}: ITask[]) => {
+export const Tasks: React.FC<{ tasks: ITask[] }> = ({tasks}) => {
     return(
         <div
         style={{

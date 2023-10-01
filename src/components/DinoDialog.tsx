@@ -1,9 +1,13 @@
 import Dino from "../assets/lvl/dino.png";
 import Modal from "./Modal";
-import {useEffect, useState} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
+import {actions} from "../constants";
 
-
-export default function DinoDialog({setActivity, setTaskDone}) {
+interface DinoDialogProps {
+    setActivity: Dispatch<SetStateAction<string>>,
+    setTaskDone: (i: number) => void
+}
+export const DinoDialog : React.FC<DinoDialogProps> = ({setTaskDone, setActivity})=> {
     const [replicasNum, setReplicasNum]=useState(0);
     const dinoReplicas = [
         'Борис Барсикович, отчет по привлечению мышей будет готов завтра.',
@@ -17,8 +21,8 @@ export default function DinoDialog({setActivity, setTaskDone}) {
             setReplicasNum((prevState) => (prevState + 1))
         } else {
             setTaskDone(0);
-            setActivity(false);
-        };
+            setActivity(actions[0]);
+        }
     }
 
 

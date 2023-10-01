@@ -8,7 +8,7 @@ const ARROW_UP = 'KeyW';
 const ARROW_LEFT = 'KeyA';
 const ARROW_RIGHT = 'KeyD';
 
-export default function Cat({drawContainerRef}: React.Ref<HTMLDivElement>){
+export default function Cat({drawContainerRef}: React.MutableRefObject<HTMLDivElement | null>){
     const [location, setLocation] = useState<ICoordinates>({x:0, y:500});
     const [isWalking, setIsWalking] = useState(false);
     const ref = useRef<HTMLDivElement | null>(null);
