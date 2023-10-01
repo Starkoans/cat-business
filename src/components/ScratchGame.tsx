@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import Modal from "./Modal";
+import {actions} from "../constants";
 
 interface ScratchGameProps{
-    setActivity: (string)=>void,
+    setActivity: (arg: string)=>void,
     setTaskDone: (i: number) => void,
 }
 
@@ -15,7 +16,7 @@ export const ScratchGame: React.FC<ScratchGameProps> = ({setTaskDone, setActivit
     }
     const handleExit = () =>{
         setTaskDone(1);
-        setActivity(false);
+        setActivity(actions[0]);
     }
     return(
         <Modal>

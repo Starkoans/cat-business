@@ -1,4 +1,6 @@
-export default function Modal({ children}){
+import {ReactNode} from "react";
+
+export default function Modal({children}:ReactNode){
     return(
                 <div style={{
                     top:0,
@@ -22,16 +24,6 @@ export default function Modal({ children}){
                         padding: '10px',
                         border: '3px solid black',
                     }}>
-                            {/*<button style={{*/}
-                            {/*    marginLeft: 'auto',*/}
-                            {/*    height: '50px'*/}
-                            {/*}}*/}
-                            {/*        onClick={() => {*/}
-                            {/*            setIsOpen(false)*/}
-                            {/*        }}*/}
-                            {/*>Закрыть*/}
-                            {/*</button>*/}
-
                         {children}
                     </div>
             </div>
