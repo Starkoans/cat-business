@@ -1,7 +1,7 @@
-import {MutableRefObject, useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Room from './assets/lvl/bg.png';
 import {DinoDialog} from "./components/DinoDialog";
-import Cat from "./components/Cat";
+import {Cat} from "./components/Cat";
 import {InteractionItem} from "./components/InteractionItem";
 import {actions, items} from "./constants";
 import {ITask} from "./types";
@@ -21,7 +21,7 @@ const initialTasksState :ITask[] = [
 ]
 
 export default function App () {
-  const drawContainerRef : MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement | null>(null);
+    const drawContainerRef = useRef<HTMLDivElement | null>(null);
     const [activity, setActivity] = useState<string>(actions[0]);
     const [tasks, setTasks] = useState<ITask[]>(initialTasksState);
     const handleTaskDone = (i: number) => {
@@ -60,7 +60,7 @@ export default function App () {
                     )
                 })}
 
-                <Cat drawContainerRef={drawContainerRef}/>
+                <Cat drawContainerRef={drawContainerRef.current}/>
                 <Tasks tasks={tasks}/>
                 { activity === actions[1] &&
                     <DinoDialog

@@ -8,15 +8,23 @@ const ARROW_UP = 'KeyW';
 const ARROW_LEFT = 'KeyA';
 const ARROW_RIGHT = 'KeyD';
 
-export default function Cat({drawContainerRef}: React.MutableRefObject<HTMLDivElement | null>){
+interface CatProps {
+    drawContainerRef:  HTMLDivElement | null
+}
+
+export const Cat: React.FC<CatProps> = ({drawContainerRef}) =>{
     const [location, setLocation] = useState<ICoordinates>({x:0, y:500});
     const [isWalking, setIsWalking] = useState(false);
     const ref = useRef<HTMLDivElement | null>(null);
 
     let drawContainerWidth, drawContainerHeight;
     useEffect(()=>{
-        drawContainerWidth = drawContainerRef.current?.getBoundingClientRect().width;
-        drawContainerHeight = drawContainerRef.current?.getBoundingClientRect().height;
+        if ("getBoundingClientRect" in drawContainerRef) {
+            drawContainerWidth = drawContainerRef.getBoundingClientRect().width;
+        }
+        if ("getBoundingClientRect" in drawContainerRef) {
+            drawContainerHeight = drawContainerRef.getBoundingClientRect().height;
+        }
     },[]);
 
     const handleKeyUp = () => {
