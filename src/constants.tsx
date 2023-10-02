@@ -1,4 +1,5 @@
 import {IItem} from "./types";
+import Couch from './assets/lvl/couch.png'
 
 export const actions: Array<string> = [
     'Nothing',
@@ -9,7 +10,7 @@ export const actions: Array<string> = [
 export const items: IItem[] = [
     {   name: 'Couch',
         action: actions[0],
-        path: 'src/assets/lvl/couch.png',
+        path: Couch,
         size:{x:454,y:190},
         position: {x:1000, y:260},
         layer: 1

@@ -8,7 +8,6 @@ import {ITask} from "./types";
 import {Tasks} from "./components/Tasks";
 import {ScratchGame} from "./components/ScratchGame";
 
-
 const initialTasksState :ITask[] = [
     {
         name: actions[1],
