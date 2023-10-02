@@ -1,6 +1,5 @@
-import {ICoordinates, IItem} from "./types";
-import Couch from '../src/assets/lvl/couch.png'
-import Dino from "./assets/lvl/dino.png";
+import {IItem} from "./types";
+
 export const actions: Array<string> = [
     'Nothing',
     'Talk to Dino',
