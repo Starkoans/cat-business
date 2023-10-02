@@ -1,5 +1,14 @@
 import {IItem} from "./types";
 import Couch from './assets/lvl/couch.png'
+import Dino from './assets/lvl/dino.png'
+import Box from './assets/lvl/box.png'
+import Rug from './assets/lvl/rug.png'
+import Bowl from './assets/lvl/bowl.png'
+import ScratchPost from './assets/lvl/scratching_post.png'
+import Plant from './assets/lvl/plant.png'
+import Painting from './assets/lvl/painting.png'
+import Robot from './assets/lvl/robot_vacuum_cleaner.png'
+import Window from './assets/lvl/window.png'
 
 export const actions: Array<string> = [
     'Nothing',
@@ -17,7 +26,7 @@ export const items: IItem[] = [
     },
     {
         name: 'Dino',
-        path: 'src/assets/lvl/dino.png',
+        path: Dino,
         size: { x:102, y:64 },
         position: { x:1300 , y:340 },
         action: actions[1],
@@ -25,7 +34,7 @@ export const items: IItem[] = [
     },
     {
         name: 'Window',
-        path: 'src/assets/lvl/window.png',
+        path: Window,
         size: { x:342, y:342 },
         position: { x:460 , y:120 },
         action: actions[0],
@@ -33,15 +42,15 @@ export const items: IItem[] = [
     },
     {
         name: 'Plant',
-        path: 'src/assets/lvl/plant.png',
+        path: Plant,
         size: { x:78, y:217 },
         position: { x:560 , y:240 },
         action: actions[0],
         layer: 1
     },
     {
-        name: 'Robot',
-        path: 'src/assets/lvl/robot_vacuum_cleaner.png',
+        name: 'Vacuum cleaner',
+        path: Robot,
         size: { x:78, y:44 },
         position: { x:1500 , y:410 },
         action: actions[0],
@@ -49,7 +58,7 @@ export const items: IItem[] = [
     },
     {
         name: 'Rug',
-        path: 'src/assets/lvl/rug.png',
+        path: Rug,
         size: { x:632, y:90 },
         position: { x:900, y:510 },
         action: actions[0],
@@ -57,7 +66,7 @@ export const items: IItem[] = [
     },
     {
         name: 'Bowl',
-        path: 'src/assets/lvl/bowl.png',
+        path: Bowl,
         size: { x:70, y:36 },
         position: { x:80, y:410 },
         action: actions[0],
@@ -65,7 +74,7 @@ export const items: IItem[] = [
     },
     {
         name: 'Painting',
-        path: 'src/assets/lvl/painting.png',
+        path: Painting,
         size: { x:180, y:102 },
         position: { x:1134, y:140 },
         action: actions[0],
@@ -73,7 +82,7 @@ export const items: IItem[] = [
     },
     {
         name: 'ScratchingPost',
-        path: 'src/assets/lvl/scratching_post.png',
+        path: ScratchPost,
         size: { x:116, y:146 },
         position: { x:330, y:310 },
         action: actions[2],
@@ -81,7 +90,7 @@ export const items: IItem[] = [
     },
     {
         name: 'Box',
-        path: 'src/assets/lvl/box.png',
+        path: Box,
         size: { x:341, y:179 },
         position: { x:80, y:660 },
         action: actions[0],
