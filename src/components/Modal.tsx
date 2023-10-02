@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Modal: React.FC =({children}:never) =>{
+export const Modal: React.FC =({children}:React.ReactNode[]) =>{
     return(
                 <div style={{
                     top:0,
