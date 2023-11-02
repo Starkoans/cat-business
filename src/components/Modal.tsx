@@ -22,13 +22,12 @@ export const Modal: React.FC<ModalProps> =({children}) => {
                     <div style={{
                         backgroundColor: 'white',
                         color: 'black',
-                        minWidth: '500px',
-                        minHeight: '500px',
-                        display: 'grid',
-                        padding: '10px',
-                        border: '3px solid black',
-                    }}>
-                        {children}
+                        width: '500px',
+                        height: '500px',
+                    }} className='border-2 border-slate-950 p-6 flex justify-center'>
+                        <div className='self-center' >
+                            {children}
+                        </div>
                     </div>
             </div>
 

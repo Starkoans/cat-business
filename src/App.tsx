@@ -1,12 +1,13 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import Room from './assets/lvl/bg.png';
-import {DinoDialog} from "./components/DinoDialog";
+import {DinoDialog} from "./components/mini-games/DinoDialog";
 import {Cat} from "./components/Cat";
 import {InteractionItem} from "./components/InteractionItem";
 import {actions, items} from "./constants";
 import {ITask} from "./types";
 import {Tasks} from "./components/Tasks";
-import {ScratchGame} from "./components/ScratchGame";
+import {ScratchGame} from "./components/mini-games/ScratchGame";
+import {BowlGame} from "./components/mini-games/BowlGame";
 
 const initialTasksState :ITask[] = [
     {
@@ -15,11 +16,15 @@ const initialTasksState :ITask[] = [
     },
     {
         name: actions[2],
-        status:false
+        status: false
+    },
+    {
+        name: actions[3],
+        status: false
     }
 ]
 
-export default function App () {
+export const App: React.FC = () => {
     const drawContainerRef = useRef<HTMLDivElement | null>(null);
     const [activity, setActivity] = useState<string>(actions[0]);
     const [tasks, setTasks] = useState<ITask[]>(initialTasksState);
@@ -28,8 +33,6 @@ export default function App () {
         nextTasks[i].status = true;
         setTasks(nextTasks);
     };
-
-    useEffect(()=>{},[tasks]);
 
   return (
       <div className="App">
@@ -59,7 +62,7 @@ export default function App () {
                     )
                 })}
 
-                <Cat drawContainerRef={drawContainerRef.current}/>
+                <Cat drawContainerRef={drawContainerRef}/>
                 <Tasks tasks={tasks}/>
                 { activity === actions[1] &&
                     <DinoDialog
@@ -71,6 +74,13 @@ export default function App () {
                         setTaskDone={handleTaskDone}
                         setActivity={setActivity}
                     />}
+                {
+                    activity === actions[3] &&
+                    <BowlGame
+                        setTaskDone={handleTaskDone}
+                        setActivity={setActivity}
+                    />
+                }
             </div>
           </div>
       </div>

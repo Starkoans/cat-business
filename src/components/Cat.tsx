@@ -1,6 +1,6 @@
 import CatWalking from "../assets/New Piskel.gif";
 import CatStanding from "../assets/sprite_2.png";
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState} from "react";
 import {ICoordinates} from "../types";
 
 const ARROW_DOWN = 'KeyS';
@@ -9,7 +9,7 @@ const ARROW_LEFT = 'KeyA';
 const ARROW_RIGHT = 'KeyD';
 
 interface CatProps {
-    drawContainerRef:  HTMLDivElement | null
+    drawContainerRef:  React.MutableRefObject<HTMLDivElement | null>
 }
 
 export const Cat: React.FC<CatProps> = ({drawContainerRef}) =>{
@@ -19,11 +19,10 @@ export const Cat: React.FC<CatProps> = ({drawContainerRef}) =>{
 
     let drawContainerWidth: number, drawContainerHeight : number;
     useEffect(()=>{
-        if (drawContainerRef && "getBoundingClientRect" in drawContainerRef) {
-            drawContainerWidth = drawContainerRef.getBoundingClientRect().width;
-        }
-        if (drawContainerRef && "getBoundingClientRect" in drawContainerRef) {
-            drawContainerHeight = drawContainerRef.getBoundingClientRect().height;
+        const rect = drawContainerRef.current?.getBoundingClientRect();
+        if(rect){
+            drawContainerWidth = rect.width;
+            drawContainerHeight = rect.height;
         }
     },[]);
 

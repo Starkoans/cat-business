@@ -11,9 +11,11 @@ import Robot from './assets/lvl/robot_vacuum_cleaner.png'
 import Window from './assets/lvl/window.png'
 
 export const actions: Array<string> = [
-    'Nothing',
-    'Talk to Dino',
-    'Stress relief'
+    'Ничего', // 0
+    'Поговорить с Дино', // 1
+    'Снять стресс', // 2
+    'Сделать ням-ням', // 3
+    'Посидеть в кабинете'
 ]
 
 export const items: IItem[] = [
@@ -69,7 +71,7 @@ export const items: IItem[] = [
         path: Bowl,
         size: { x:70, y:36 },
         position: { x:80, y:410 },
-        action: actions[0],
+        action: actions[3],
         layer: 1
     },
     {
@@ -93,7 +95,7 @@ export const items: IItem[] = [
         path: Box,
         size: { x:341, y:179 },
         position: { x:80, y:660 },
-        action: actions[0],
+        action: actions[4],
         layer: 3
     },
 ]

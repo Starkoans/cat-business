@@ -1,12 +1,13 @@
-import Dino from "../assets/lvl/dino.png";
-import {Modal} from "./Modal";
+import Dino from "../../assets/lvl/dino.png";
+import {Modal} from "../Modal";
 import React, {useState} from "react";
-import {actions} from "../constants";
+import {actions} from "../../constants";
 
 interface DinoDialogProps {
     setActivity: (arg: string) => void,
     setTaskDone: (i: number) => void,
 }
+
 export const DinoDialog : React.FC<DinoDialogProps> = ({setTaskDone, setActivity})=> {
     const [replicasNum, setReplicasNum]=useState(0);
     const dinoReplicas = [
@@ -25,11 +26,11 @@ export const DinoDialog : React.FC<DinoDialogProps> = ({setTaskDone, setActivity
         }
     }
 
-
-
     return(
         <Modal>
-            <div style={{maxWidth: '250px',
+            <div className=' grid grid-cols-1 gap-4'>
+            <div
+                style={{maxWidth: '250px',
                 padding:'10px',
                 margin:'auto',
                 border: '1px solid black'
@@ -45,7 +46,12 @@ export const DinoDialog : React.FC<DinoDialogProps> = ({setTaskDone, setActivity
                     backgroundSize: 'cover',
                 }}
             ></div>
-            <button onClick={handleClick}>Мяу.</button>
+
+            <button
+                className='flex justify-self-center text-white'
+                onClick={handleClick}>Мяу.
+            </button>
+            </div>
         </Modal>
         )
 }
